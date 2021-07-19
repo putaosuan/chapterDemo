@@ -10,4 +10,5 @@ func main() {
 	fmt.Println("push test! ")
 	fmt.Println("haha test! ")
 	fmt.Println("gitee test! ")
+    fmt.Println("gitee 编辑了! ")
 }
