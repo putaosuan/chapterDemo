@@ -7,5 +7,5 @@ func main() {
 	fmt.Println("hiaho")
 	fmt.Println("hello git4")
 	fmt.Println("master test!")
-	fmt.Println("hot fix test! ")
+	fmt.Println("push test! ")
 }
