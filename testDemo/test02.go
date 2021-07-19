@@ -9,4 +9,5 @@ func main() {
 	fmt.Println("master test!")
 	fmt.Println("push test! ")
 	fmt.Println("haha test! ")
+	fmt.Println("gitee test! ")
 }
