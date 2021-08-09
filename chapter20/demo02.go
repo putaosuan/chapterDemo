@@ -53,7 +53,7 @@ func main() {
 		fmt.Println("1.输入 add 表示添加数据到队列")
 		fmt.Println("1.输入 get 表示从队列获取数据")
 		fmt.Println("1.输入 show 表示显示队列")
-		fmt.Println("1.输入 exie 表示退出队列")
+		fmt.Println("1.输入 exit 表示退出队列")
 		fmt.Scanln(&key)
 		switch key {
 		case "add":
