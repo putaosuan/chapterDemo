@@ -8,8 +8,8 @@ import (
 
 //使用数组来模拟一个栈
 type Stack struct {
-	MaxTop int
-	Top    int
+	MaxTop int    //表示我们栈最大可以存放的个数
+	Top    int    //
 	arr    [5]int //数组模拟栈
 }
 
