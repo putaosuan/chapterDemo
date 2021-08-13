@@ -76,6 +76,28 @@ func (this *EmpLink) FindByid(id int) *Emp {
 	}
 	return nil
 }
+func (this *EmpLink) Delete(id int) bool {
+	cur := this.Head
+	var pre *Emp = nil
+	for {
+		if cur != nil && cur.Id == id {
+			break
+		} else if cur == nil {
+			break
+		}
+		pre = cur
+		cur = cur.Next
+	}
+	if pre == nil && cur != nil {
+		this.Head = cur.Next
+		return true
+	}
+	if cur != nil {
+		pre.Next = cur.Next
+		return true
+	}
+	return false
+}
 
 type HashTable struct {
 	LinkArr [7]EmpLink
@@ -97,6 +119,10 @@ func (this *HashTable) FindByid(id int) *Emp {
 	linkNo := this.HashFun(id)
 	return this.LinkArr[linkNo].FindByid(id)
 }
+func (this *HashTable) Delete(id int) bool {
+	linkNo := this.HashFun(id)
+	return this.LinkArr[linkNo].Delete(id)
+}
 func main() {
 	key := ""
 	id := 0
@@ -108,6 +134,7 @@ func main() {
 		fmt.Println("show 表示显示雇员")
 		fmt.Println("find 表示查找雇员")
 		fmt.Println("exit 表示退出系统")
+		fmt.Println("delete 表示退出系统")
 		fmt.Println("请输入你的选择")
 		fmt.Scanln(&key)
 		switch key {
@@ -132,7 +159,15 @@ func main() {
 			} else {
 				emp.ShowMe()
 			}
-
+		case "delete":
+			fmt.Println("输入雇员id")
+			fmt.Scanln(&id)
+			b := hashtable.Delete(id)
+			if !b {
+				fmt.Println("删除失败")
+			} else {
+				fmt.Println("删除成功")
+			}
 		case "exit":
 			os.Exit(0)
 		}
